@@ -78,7 +78,7 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-6 p-3 bg-gray-50 rounded-lg text-center">
-              <p className="text-xs text-gray-500 font-semibold mb-1">Default credentials</p>
+              <p className="text-xs text-gray-500 font-semibold mb-1">Default credentials</p> 
               <p className="text-xs text-gray-600">admin@gurukrupa.com / Admin@123</p>
               <p className="text-[10px] text-gray-400 mt-1">Run <code className="bg-gray-200 px-1 rounded">npm run seed</code> in backend first</p>
             </div>

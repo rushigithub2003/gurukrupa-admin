@@ -78,7 +78,7 @@ export default function AdminLayout() {
             <h1 className="font-display font-semibold text-gray-800 text-base hidden sm:block">Gurukrupa Enterprises Admin</h1>
           </div>
           <div className="flex items-center gap-3">
-            <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer"
+            <a href="https://gurukrupa-frontend.vercel.app/" target="_blank" rel="noopener noreferrer"
               className="text-xs text-blue-600 hover:underline hidden sm:block">🌐 View Website</a>
             <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
               👤 {admin?.name}
