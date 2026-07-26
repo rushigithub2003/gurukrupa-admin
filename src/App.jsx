@@ -1,4 +1,5 @@
 import React from 'react';
+import Settings from "./pages/Settings";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import AdminLayout from './components/AdminLayout';
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/products/new" element={<ProductFormPage />} />
           <Route path="products/edit/:id" element={<ProductFormPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/settings" element={<Settings />} />
           
         </Route>
       </Routes>
