@@ -344,12 +344,12 @@ export default function LoginPage() {
 
                 </label>
 
-                <button
+                {/* <button
                   type="button"
                   className="text-sm font-medium text-blue-700 transition hover:text-orange-500"
                 >
                   Forgot Password?
-                </button>
+                </button> */}
 
               </div>
 
