@@ -109,7 +109,7 @@ export default function DashboardPage() {
                       </span>
                     </td>
                     <td className="px-5 py-3">
-                      <Link to={`/products/${p._id}`} className="text-blue-600 hover:underline text-xs">Edit</Link>
+                      <Link to={`/products/edit/${p._id}`} className="text-blue-600 hover:underline text-xs">Edit</Link>
                     </td>
                   </tr>
                 ))}

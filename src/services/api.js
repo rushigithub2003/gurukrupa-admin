@@ -1,6 +1,7 @@
 // src/api.js — Admin panel API with JWT auth
 import axios from 'axios';
 
+//This is for localSys
 // const api = axios.create({
 //   baseURL: "http://localhost:5000/api"
 // });
