@@ -14,3 +14,19 @@ h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
 .btn-primary { @apply bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors; }
 .btn-secondary { @apply bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors; }
 .btn-danger { @apply bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors; }
+
+.loading-bar {
+  width: 40%;
+  background: linear-gradient(90deg, #1a6fc4, #60a5fa);
+  animation: loading 1.6s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(320%);
+  }
+}
