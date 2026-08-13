@@ -21,14 +21,15 @@ function ProtectedRoute({ children }) {
   const { admin, loading } = useAuth();
   if (loading) {
     // return <LoadingScreen />;
-
+    
     return null;
   }
   if (!admin) return <Navigate to="/login" replace />;
-  return children;
+return children;
 }
 
 export default function App() {
+
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {

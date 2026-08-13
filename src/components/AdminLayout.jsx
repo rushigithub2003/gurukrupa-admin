@@ -1,7 +1,7 @@
 // components/AdminLayout.jsx — Sidebar + topbar shell
-import React, { useState } from "react";
-import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import React, { useState } from 'react';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 // const navItems = [
 //   { to: '/dashboard',  icon: '📊', label: 'Dashboard' },
@@ -10,10 +10,10 @@ import { useAuth } from "../context/AuthContext";
 // ];
 
 const navItems = [
-  { to: "/dashboard", icon: "📊", label: "Dashboard" },
-  { to: "/products", icon: "📦", label: "Products" },
-  { to: "/categories", icon: "🗂️", label: "Categories" },
-  { to: "/settings", icon: "⚙️", label: "Website Settings" },
+  { to: '/dashboard',  icon: '📊', label: 'Dashboard' },
+  { to: '/products',   icon: '📦', label: 'Products' },
+  { to: '/categories', icon: '🗂️', label: 'Categories' },
+  { to: '/settings',   icon: '⚙️', label: 'Website Settings' },
 ];
 
 export default function AdminLayout() {
@@ -21,69 +21,56 @@ export default function AdminLayout() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
+  const handleLogout = () => { logout(); navigate('/login'); };
 
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden">
       {/* Mobile overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+      {sidebarOpen && <div className="fixed inset-0 bg-black/50 z-30 lg:hidden" onClick={() => setSidebarOpen(false)} />}
 
       {/* ── Sidebar ── */}
-      <aside
-        className={`
+      <aside className={`
         fixed inset-y-0 left-0 z-40 w-64 bg-slate-900 flex flex-col transition-transform duration-300
         lg:static lg:z-auto lg:translate-x-0
-        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-      `}
-      >
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
         {/* Logo */}
         {/* Logo */}
-        <div className="px-5 py-5 border-b border-slate-700">
-          <div className="flex items-center gap-3">
-            <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center p-2 shadow-md">
-              <img
-                src="/log-guru.png"
-                alt="Gurukrupa Enterprises"
-                className="w-25 h-25 object-contain"
-              />
-            </div>
+<div className="px-5 py-5 border-b border-slate-700">
+  <div className="flex items-center gap-3">
 
-            <div>
-              <h2 className="text-white font-bold text-base leading-tight">
-                Gurukrupa
-              </h2>
+    <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center p-2 shadow-md">
+      <img
+        src="/log-guru.png"
+        alt="Gurukrupa Enterprises"
+        className="w-25 h-25 object-contain"
+      />
+    </div>
 
-              <p className="text-slate-400 text-xs">Enterprises</p>
+    <div>
+      <h2 className="text-white font-bold text-base leading-tight">
+        Gurukrupa
+      </h2>
 
-              <p className="text-blue-400 text-[11px] font-medium">
-                Admin Panel
-              </p>
-            </div>
-          </div>
-        </div>
+      <p className="text-slate-400 text-xs">
+        Enterprises
+      </p>
+
+      <p className="text-blue-400 text-[11px] font-medium">
+        Admin Panel
+      </p>
+    </div>
+
+  </div>
+</div>
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
-          <p className="text-slate-500 text-[10px] uppercase tracking-widest px-4 mb-2 font-semibold">
-            Main Menu
-          </p>
+          <p className="text-slate-500 text-[10px] uppercase tracking-widest px-4 mb-2 font-semibold">Main Menu</p>
           {navItems.map(({ to, icon, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `sidebar-link ${isActive ? "active" : ""}`
-              }
-              onClick={() => setSidebarOpen(false)}
-            >
+            <NavLink key={to} to={to}
+              className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+              onClick={() => setSidebarOpen(false)}>
               <span>{icon}</span>
               <span>{label}</span>
             </NavLink>
@@ -97,18 +84,12 @@ export default function AdminLayout() {
               {admin?.name?.[0]?.toUpperCase()}
             </div>
             <div>
-              <div className="text-white text-xs font-semibold">
-                {admin?.name}
-              </div>
-              <div className="text-slate-400 text-[10px] truncate max-w-[130px]">
-                {admin?.email}
-              </div>
+              <div className="text-white text-xs font-semibold">{admin?.name}</div>
+              <div className="text-slate-400 text-[10px] truncate max-w-[130px]">{admin?.email}</div>
             </div>
           </div>
-          <button
-            onClick={handleLogout}
-            className="w-full text-left sidebar-link text-red-400 hover:bg-red-900/20 hover:text-red-300"
-          >
+          <button onClick={handleLogout}
+            className="w-full text-left sidebar-link text-red-400 hover:bg-red-900/20 hover:text-red-300">
             🚪 Logout
           </button>
         </div>
@@ -119,38 +100,29 @@ export default function AdminLayout() {
         {/* Topbar */}
         <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <button
-              className="lg:hidden text-gray-500 p-1.5 rounded hover:bg-gray-100"
-              onClick={() => setSidebarOpen(true)}
-            >
-              ☰
-            </button>
+            <button className="lg:hidden text-gray-500 p-1.5 rounded hover:bg-gray-100" onClick={() => setSidebarOpen(true)}>☰</button>
             {/* <h1 className="font-display font-semibold text-gray-800 text-base hidden sm:block">Gurukrupa Enterprises Admin</h1> */}
             <div className="flex items-center gap-3">
-              <img
-                src="/log-guru.png"
-                alt="Logo"
-                className="w-16 h-16 object-contain"
-              />
+    <img
+        src="/log-guru.png"
+        alt="Logo"
+        className="w-16 h-16 object-contain"
+    />
 
-              <div>
-                <h1 className="font-bold text-gray-800 text-base">
-                  Gurukrupa Enterprises
-                </h1>
+    <div>
+        <h1 className="font-bold text-gray-800 text-base">
+            Gurukrupa Enterprises
+        </h1>
 
-                <p className="text-xs text-gray-500">Administration Panel</p>
-              </div>
-            </div>
+        <p className="text-xs text-gray-500">
+            Administration Panel
+        </p>
+    </div>
+</div>
           </div>
           <div className="flex items-center gap-3">
-            <a
-              href="https://gurukrupa-frontend.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-blue-600 hover:underline hidden sm:block"
-            >
-              🌐 View Website
-            </a>
+            <a href="https://gurukrupa-frontend.vercel.app/" target="_blank" rel="noopener noreferrer"
+              className="text-xs text-blue-600 hover:underline hidden sm:block">🌐 View Website</a>
             <div className="text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
               👤 {admin?.name}
             </div>

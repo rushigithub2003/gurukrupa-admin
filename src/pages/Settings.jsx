@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API = "https://gurukrupa-backend-zat5.onrender.com/api/maintenance";
+const API = "http://localhost:5000/api/maintenance";
 
 export default function Settings() {
   const [enabled, setEnabled] = useState(false);
