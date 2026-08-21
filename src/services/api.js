@@ -1,5 +1,6 @@
 // src/api.js — Admin panel API with JWT auth
 
+
 import axios from "axios";
 
 // const api = axios.create({
@@ -44,6 +45,21 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// ============================================================
+// MAINTENANCE / WEBSITE PREVIEW
+// ============================================================
+
+export const maintenanceAPI = {
+  get: () =>
+    api.get("/maintenance"),
+
+  update: (data) =>
+    api.put("/maintenance", data),
+
+  createPreview: () =>
+    api.post("/maintenance/preview"),
+};
 
 // ============================================================
 // AUTH
